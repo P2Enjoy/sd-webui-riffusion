@@ -164,7 +164,9 @@ class RiffusionScript(scripts.Script):
         )
 
         sample_rate = 44100  # [Hz]
-        clip_duration_ms = 5000  # [ms]
+        clip_duration_ms = (
+            int(5000 * (image.width / image.height))
+        ) # [ms]
 
         bins_per_image = image.height
         n_mels = image.height
